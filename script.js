@@ -1,5 +1,3 @@
-
-    // Three.js background
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({
@@ -11,13 +9,11 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.position.setZ(30);
 
-    // Create a more complex geometry
     const geometry = new THREE.IcosahedronGeometry(10, 1);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ffff, wireframe: true });
     const icosahedron = new THREE.Mesh(geometry, material);
     scene.add(icosahedron);
 
-    // Add some particles
     const particlesGeometry = new THREE.BufferGeometry();
     const particlesCount = 5000;
     const posArray = new Float32Array(particlesCount * 3);
@@ -48,14 +44,12 @@
 
     animate();
 
-    // Resize handler
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -65,7 +59,6 @@
         });
     });
 
-    // Animate elements on scroll
     const animateOnScroll = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -84,7 +77,6 @@
         observer.observe(el);
     });
 
-    // Add a class for animation when elements come into view
     document.addEventListener('DOMContentLoaded', (event) => {
         document.querySelectorAll('.animate').forEach((element) => {
             element.classList.remove('animate');
@@ -92,7 +84,6 @@
         });
     });
 
-    // Mouse parallax effect for header
     const header = document.querySelector('header');
     document.addEventListener('mousemove', (e) => {
         const mouseX = e.clientX / window.innerWidth - 0.5;
@@ -101,7 +92,6 @@
         header.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
     });
 
-    // Neon flicker effect for skills
     const skills = document.querySelectorAll('.skill');
     skills.forEach(skill => {
         setInterval(() => {
@@ -109,7 +99,6 @@
         }, 100);
     });
 
-    // Dynamic color change for projects
     const projects = document.querySelectorAll('.project');
     projects.forEach(project => {
         project.addEventListener('mouseenter', () => {
@@ -124,7 +113,6 @@
         });
     });
 
-    // Typing effect for the header
     const headerText = document.querySelector('header h1');
     const originalText = headerText.textContent;
     headerText.textContent = '';
@@ -138,3 +126,43 @@
         }
     }, 100);
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    form.reset();
+                    submitButton.textContent = 'Message Sent!';
+                    setTimeout(() => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText;
+                    }, 3000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                submitButton.textContent = 'Error! Try Again';
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                }, 3000);
+            });
+        });

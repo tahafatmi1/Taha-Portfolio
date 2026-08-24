@@ -1,0 +1,3 @@
+Taha Fatmi — CV placeholder
+
+TODO: Replace this file with Taha's verified CV PDF at public/taha-fatmi-cv.pdf and update the link in src/components/Hero.tsx.

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Download, Github, ImagePlus, Linkedin, Mail } from 'lucide-react'
+import { ExternalLink, Github, ImagePlus, Linkedin, Mail } from 'lucide-react'
 import { profile } from '../data/profile'
 import { MagneticLink } from './ui'
 
@@ -39,15 +39,15 @@ export function Hero() {
         <motion.div variants={reveal} className="hero-actions">
           <MagneticLink href="#projects">VIEW MY WORK</MagneticLink>
           {profile.cv ? (
-            <a className="download-button" href={profile.cv} download data-cursor="link">DOWNLOAD CV <Download size={16} /></a>
+            <a className="download-button" href={profile.cv} target="_blank" rel="noreferrer" data-cursor="link">VIEW RESUME <ExternalLink size={16} /></a>
           ) : (
-            <a className="download-button" href={`mailto:${profile.email}?subject=CV request`} data-cursor="link">REQUEST CV <Download size={16} /></a>
+            <a className="download-button" href={`mailto:${profile.email}?subject=Resume request`} data-cursor="link">REQUEST RESUME <ExternalLink size={16} /></a>
           )}
         </motion.div>
         <motion.div variants={reveal} className="social-row">
           {profile.social.github ? <a href={profile.social.github} target="_blank" rel="noreferrer" aria-label="GitHub" data-cursor="link"><Github /></a> : <span className="social-pending" title="GitHub profile ready to connect"><Github /></span>}
           {profile.social.linkedin ? <a href={profile.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" data-cursor="link"><Linkedin /></a> : <span className="social-pending" title="LinkedIn profile ready to connect"><Linkedin /></span>}
-          <a href={`mailto:${profile.email}`} aria-label={`Email ${profile.name}`} data-cursor="link"><Mail /></a>
+          <a href={profile.contactHref} aria-label={`Email ${profile.name}`} data-cursor="link"><Mail /></a>
         </motion.div>
       </motion.div>
       <Portrait />
@@ -55,4 +55,3 @@ export function Hero() {
     </section>
   )
 }
-

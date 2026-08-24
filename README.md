@@ -1,6 +1,8 @@
 # Taha Fatmi — Portfolio
 
-A responsive React portfolio built with Vite, TypeScript, Framer Motion, Lenis, and Lucide. The interface follows the supplied black-and-orange mockup while using reusable sections, accessible controls, responsive navigation, and reduced-motion support.
+A responsive portfolio for Taha Fatmi, built with React, Vite, TypeScript, Framer Motion, Lenis, and Lucide. It includes a custom project gallery, SAP certification badges, professional experience, an embedded resume, social/contact links, accessible controls, responsive navigation, and reduced-motion support.
+
+Live site: [taha-portfolio-ten.vercel.app](https://taha-portfolio-ten.vercel.app/)
 
 ## Run locally
 
@@ -11,7 +13,7 @@ npm run dev
 
 Use `npm run build` for the production bundle and `npm run lint` for source checks.
 
-## Add the final assets
+## Content management
 
 All personal details and asset paths are centralized so the page does not need to be redesigned when final content arrives.
 
@@ -20,11 +22,6 @@ All personal details and asset paths are centralized so the page does not need t
 - Projects and links: `src/data/projects.ts`
 - Experience: `src/data/experience.ts`
 
-Recommended public asset paths:
+The completed portrait, resume, certification badges, and project screenshots are stored under `public/`. Uptown Dance & Fitness is intentionally pinned as the first project; add future projects after it in `src/data/projects.ts`.
 
-- Portrait: `public/portrait.webp`, then set `portrait: '/portrait.webp'`
-- CV: `public/taha-fatmi-cv.pdf`, then set `cv: '/taha-fatmi-cv.pdf'`
-- Certificate badges: `public/certificates/<badge-name>.webp`, then set the matching `badge` value
-
-The profile currently hides unprovided social links and converts the missing CV action into a working email request, so unfinished data is never shown as a broken link.
-
+The previous website is preserved in `archive/legacy-portfolio/` and in Git history.

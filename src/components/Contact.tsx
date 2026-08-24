@@ -8,10 +8,10 @@ export function Contact() {
       <div className="contact-copy">
         <SectionLabel>Let&apos;s work together</SectionLabel>
         <h2>Have a project in mind?<br />Let&apos;s build something <span>amazing.</span></h2>
-        <MagneticLink href={`mailto:${profile.email}`}>GET IN TOUCH</MagneticLink>
+        <MagneticLink href={profile.contactHref}>GET IN TOUCH</MagneticLink>
       </div>
       <div className="contact-details">
-        <a href={`mailto:${profile.email}`}><Mail /> <span><small>Email</small>{profile.email}</span></a>
+        <a href={profile.contactHref}><Mail /> <span><small>Email</small>{profile.email}</span></a>
         {profile.social.linkedin ? <a href={profile.social.linkedin} target="_blank" rel="noreferrer"><Linkedin /> <span><small>LinkedIn</small>View profile</span></a> : <div className="detail-pending"><Linkedin /> <span><small>LinkedIn</small>Ready to connect</span></div>}
         {profile.social.github ? <a href={profile.social.github} target="_blank" rel="noreferrer"><Github /> <span><small>GitHub</small>View profile</span></a> : <div className="detail-pending"><Github /> <span><small>GitHub</small>Ready to connect</span></div>}
         <div><MapPin /> <span><small>Location</small>{profile.location}</span></div>
@@ -20,4 +20,3 @@ export function Contact() {
     </section>
   )
 }
-

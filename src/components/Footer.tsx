@@ -7,12 +7,11 @@ export function Footer() {
       <p>© 2026 {profile.name}. All rights reserved.</p>
       <p>Built with React and lots of coffee.</p>
       <div className="footer-socials">
-        {profile.social.github && <a href={profile.social.github} aria-label="GitHub"><Github /></a>}
-        {profile.social.linkedin && <a href={profile.social.linkedin} aria-label="LinkedIn"><Linkedin /></a>}
-        <a href={`mailto:${profile.email}`} aria-label="Email"><Mail /></a>
+        {profile.social.github && <a href={profile.social.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github /></a>}
+        {profile.social.linkedin && <a href={profile.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin /></a>}
+        <a href={profile.contactHref} aria-label="Email"><Mail /></a>
       </div>
       <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>BACK TO TOP <ArrowUp /></button>
     </footer>
   )
 }
-

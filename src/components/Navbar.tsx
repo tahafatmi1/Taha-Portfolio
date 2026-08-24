@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, Send, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { profile } from '../data/profile'
 
 const navItems = ['Home', 'About', 'Skills', 'Projects', 'Certifications', 'Experience', 'Contact']
 
@@ -59,7 +60,7 @@ export function Navbar() {
             return <button key={item} className={active === id ? 'active' : ''} aria-current={active === id ? 'page' : undefined} onClick={() => navigate(id)}>{item}</button>
           })}
         </nav>
-        <button className="nav-cta" onClick={() => navigate('contact')}>Let&apos;s Talk <Send size={15} /></button>
+        <a className="nav-cta" href={profile.contactHref}>Let&apos;s Talk <Send size={15} /></a>
         <button className="menu-button" onClick={() => setOpen((value) => !value)} aria-label="Toggle navigation" aria-expanded={open}>{open ? <X /> : <Menu />}</button>
       </div>
       <AnimatePresence>

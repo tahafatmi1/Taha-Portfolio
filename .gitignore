@@ -9,3 +9,5 @@ dist/
 .DS_Store
 Thumbs.db
 
+# Superseded local portrait draft; the site uses portrait-taha-v2.png.
+public/portrait-taha.png

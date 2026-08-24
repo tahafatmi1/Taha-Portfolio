@@ -6,11 +6,12 @@ export type Certification = {
   mark: string
   accent: string
   badge?: string
+  badgeVariant?: 'logo'
   url?: string
 }
 
 export const certifications: Certification[] = [
-  { title: 'Google AI Professional Certificate', issuer: 'Coursera', year: '2024', description: 'Applied AI foundations and responsible workflows.', mark: 'G', accent: '#4285f4' },
+  { title: 'Google AI Professional Certificate', issuer: 'Coursera', year: '2024', description: 'Applied AI foundations and responsible workflows.', mark: 'G', accent: '#4285f4', badge: '/certificates/google-ai-logo.webp', badgeVariant: 'logo', url: 'https://coursera.org/share/5765a13d2b7674ea30241ce1c686d1af' },
   { title: 'Data Analyst · SAP Analytics Cloud', issuer: 'SAP', year: '2025', description: 'Certified analytics expertise in SAP Analytics Cloud.', mark: 'SAP', accent: '#16a8e0', badge: '/certificates/sap-analytics-cloud.png' },
   { title: 'SAP Generative AI Developer', issuer: 'SAP', year: 'Certified', description: 'Certified development skills for generative AI solutions in the SAP ecosystem.', mark: 'SAP AI', accent: '#16a8e0', badge: '/certificates/sap-generative-ai-developer.png' },
   { title: 'Data Analyst Professional Certificate', issuer: 'Coursera', year: '2024', description: 'Data preparation, analysis and visualization.', mark: 'IBM', accent: '#6aa9ff' },

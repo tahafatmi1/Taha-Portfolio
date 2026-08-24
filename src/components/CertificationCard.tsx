@@ -5,7 +5,7 @@ import type { Certification } from '../data/certifications'
 export function CertificationCard({ certification }: { certification: Certification }) {
   const content = (
     <>
-      <div className={`cert-mark ${certification.badge ? 'has-badge' : ''}`} style={{ color: certification.accent }}>
+      <div className={`cert-mark ${certification.badge ? 'has-badge' : ''} ${certification.badgeVariant === 'logo' ? 'logo-badge' : ''}`} style={{ color: certification.accent }}>
         {certification.badge ? <img src={certification.badge} alt={`${certification.title} certification badge`} /> : certification.mark}
       </div>
       <h3>{certification.title}</h3>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, BarChart3, Bot, ChevronLeft, ChevronRight, ExternalLink, Github, LayoutDashboard } from 'lucide-react'
 import type { Project } from '../data/projects'
+import { ResponsiveImage } from './ResponsiveImage'
 
 function ProjectVisual({ type }: { type: NonNullable<Project['visual']> }) {
   if (type === 'crm') return <div className="mock crm-mock"><div className="mock-sidebar" /><div className="mock-main"><div className="mock-top" /><div className="chart-ring">74%</div><div className="bars"><i /><i /><i /><i /></div></div></div>
@@ -26,7 +27,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     <motion.article className={`project-card ${screenshots.length > 0 ? 'with-screenshot' : ''}`} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: (index % 2) * 0.08 }} whileHover={{ y: -7 }} data-cursor={project.liveUrl || project.githubUrl ? 'view' : undefined}>
       <div className="project-number">{String(index + 1).padStart(2, '0')}</div>
       <div className="project-visual">
-        {screenshots.length > 0 ? <img key={screenshots[screenshotIndex]} className="project-screenshot" src={screenshots[screenshotIndex]} alt={`Screenshot ${screenshotIndex + 1} of ${project.title}`} loading="lazy" decoding="async" /> : project.visual ? <ProjectVisual type={project.visual} /> : null}
+        {screenshots.length > 0 ? <ResponsiveImage key={screenshots[screenshotIndex].src} image={screenshots[screenshotIndex]} className="project-screenshot" alt={`Screenshot ${screenshotIndex + 1} of ${project.title}`} loading="lazy" decoding="async" /> : project.visual ? <ProjectVisual type={project.visual} /> : null}
         {screenshots.length > 1 && (
           <div className="project-shot-controls" aria-label={`${project.title} screenshot gallery`}>
             <button type="button" onClick={showPreviousScreenshot} aria-label={`View previous ${project.title} screenshot`}><ChevronLeft size={16} /></button>

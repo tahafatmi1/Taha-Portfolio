@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, ImagePlus, Linkedin, Mail } from 'lucide-react'
 import { profile } from '../data/profile'
+import { ResponsiveImage } from './ResponsiveImage'
 import { MagneticLink } from './ui'
 
 const reveal = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }
@@ -11,7 +12,7 @@ function Portrait() {
       <div className="frame-corner corner-a" /><div className="frame-corner corner-b" />
       <div className="portrait-grid" />
       {profile.portrait ? (
-        <img className="portrait-image" src={profile.portrait} alt={`${profile.name}, ${profile.role}`} />
+        <ResponsiveImage className="portrait-image" image={profile.portrait} alt={`${profile.name}, ${profile.role}`} loading="eager" decoding="async" fetchPriority="high" />
       ) : (
         <div className="portrait-placeholder" role="img" aria-label={`Portrait slot for ${profile.name}`}>
           <div className="portrait-monogram">{profile.initials}</div>

@@ -1,3 +1,5 @@
+import { portraitImage } from './imageAssets'
+
 export const profile = {
   name: 'Taha Fatmi',
   initials: 'TF',
@@ -6,7 +8,7 @@ export const profile = {
   email: 'tahafatmi@gmail.com',
   contactHref: 'mailto:tahafatmi@gmail.com?subject=Portfolio%20project%20inquiry',
   availability: 'Available for opportunities',
-  portrait: '/portrait-taha-v2.png',
+  portrait: portraitImage('portrait-taha-v2'),
   cv: '/taha-fatmi-resume.pdf',
   social: {
     github: 'https://github.com/tahafatmi1',

@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import type { Certification } from '../data/certifications'
+import { ResponsiveImage } from './ResponsiveImage'
 
 export function CertificationCard({ certification }: { certification: Certification }) {
   const content = (
     <>
       <div className={`cert-mark ${certification.badge ? 'has-badge' : ''} ${certification.badgeVariant === 'logo' ? 'logo-badge' : ''}`} style={{ color: certification.accent }}>
-        {certification.badge ? <img src={certification.badge} alt={`${certification.title} certification badge`} /> : certification.mark}
+        {certification.badge ? <ResponsiveImage image={certification.badge} alt={`${certification.title} certification badge`} loading="lazy" decoding="async" /> : certification.mark}
       </div>
       <h3>{certification.title}</h3>
       <p>{certification.description}</p>

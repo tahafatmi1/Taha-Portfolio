@@ -13,6 +13,16 @@ npm run dev
 
 Use `npm run build` for the production bundle and `npm run lint` for source checks.
 
+## Image optimization
+
+Original image files are preserved in `source-images/` and are not shipped directly to the browser. Run:
+
+```bash
+npm run optimize:images
+```
+
+The script generates responsive AVIF and WebP assets in `public/optimized/`. It runs automatically before both `npm run dev` and `npm run build`.
+
 ## Content management
 
 All personal details and asset paths are centralized so the page does not need to be redesigned when final content arrives.
@@ -22,6 +32,6 @@ All personal details and asset paths are centralized so the page does not need t
 - Projects and links: `src/data/projects.ts`
 - Experience: `src/data/experience.ts`
 
-The completed portrait, resume, certification badges, and project screenshots are stored under `public/`. Uptown Dance & Fitness is intentionally pinned as the first project; add future projects after it in `src/data/projects.ts`.
+The original portrait, certification badges, and project screenshots are stored under `source-images/`; generated browser-ready versions are stored under `public/optimized/`. The resume remains under `public/`. Uptown Dance & Fitness is intentionally pinned as the first project; add future projects after it in `src/data/projects.ts`.
 
 The previous website is preserved in `archive/legacy-portfolio/` and in Git history.
